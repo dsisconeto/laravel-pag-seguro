@@ -1,5 +1,5 @@
 {
-    "name": "dsisconeto/laravel-pagseguro",
+    "name": "dsisconeto/laravel-payment",
     "description": "",
     "license": "mit",
     "authors": [
@@ -10,34 +10,29 @@
         }
     ],
     "homepage": "https://github.com/dsisconeto/laravelpagseguro",
-    "keywords": ["Laravel", "PagSeguro"],
+    "keywords": [
+        "Laravel",
+        "Payment"
+    ],
     "require": {
-        "illuminate/support": "~6"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "~7.0",
-        "mockery/mockery": "^1.1",
-        "orchestra/testbench": "~3.0",
-        "sempro/phpunit-pretty-print": "^1.0"
+        "illuminate/support": "~6",
+        "bensampo/laravel-enum": "^1.26"
     },
     "autoload": {
         "psr-4": {
-            "Dsisconeto\\LaravelPagSeguro\\": "src/"
+            "Dsisconeto\\LaravelPayment\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Dsisconeto\\LaravelPagSeguro\\Tests\\": "tests"
+            "Dsisconeto\\LaravelPayment\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Dsisconeto\\LaravelPagSeguro\\LaravelPagSeguroServiceProvider"
-            ],
-            "aliases": {
-                "LaravelPagSeguro": "Dsisconeto\\LaravelPagSeguro\\Facades\\LaravelPagSeguro"
-            }
+                "Dsisconeto\\LaravelPayment\\LaravelPaymentServiceProvider"
+            ]
         }
     }
 }

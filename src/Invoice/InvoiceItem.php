@@ -1,6 +1,6 @@
 <?php
 
-namespace Dsisconeto\LaravelPagSeguro\Invoice;
+namespace Dsisconeto\LaravelPayment\Invoice;
 
 use Illuminate\Database\Eloquent\Model;
 

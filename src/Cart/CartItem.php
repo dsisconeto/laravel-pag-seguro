@@ -1,9 +1,10 @@
 <?php
 
-namespace Dsisconeto\LaravelPagSeguro\Cart;
+namespace Dsisconeto\LaravelPayment\Cart;
 
+use Dsisconeto\LaravelPayment\Marketable\MarketableInterface;
 use Illuminate\Database\Eloquent\Model;
-use Marketable\MarketableInterface;
+
 
 /**
  * Class CartItem
@@ -25,7 +26,6 @@ class CartItem extends Model
         'cart_id',
         'price',
         'quantity',
-        'amount'
     ];
 
     protected $casts = [

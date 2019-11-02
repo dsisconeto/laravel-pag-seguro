@@ -17,7 +17,7 @@ class CreateCartsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedDecimal('amount')->default(0);
             $table->unsignedBigInteger('customer_id')->nullable()->index();
-            $table->unsignedBigInteger('customer_type')->nullable()->index();
+            $table->string('customer_type')->nullable()->index();
             $table->string('status', 40)->index();
             $table->timestamps();
         });

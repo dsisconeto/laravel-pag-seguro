@@ -1,14 +1,15 @@
 <?php
 
-namespace Dsisconeto\LaravelPagSeguro\Cart;
+namespace Dsisconeto\LaravelPayment\Cart;
 
-use Customer\CustomerInterface;
+use BenSampo\Enum\Traits\CastsEnums;
+use Dsisconeto\LaravelPayment\Customer\CustomerInterface;
+use Dsisconeto\LaravelPayment\Marketable\MarketableInterface;
 use Illuminate\Database\Eloquent\Model;
-use Marketable\MarketableInterface;
 
 /**
  * Class Cart
- * @package Dsisconeto\LaravelPagSeguro\Cart
+ * @package Dsisconeto\LaravelPayment\Cart
  * @property int id
  * @property int customer_id
  * @property string customer_type
@@ -16,6 +17,16 @@ use Marketable\MarketableInterface;
  */
 class Cart extends Model
 {
+    use  CastsEnums;
+
+    public $enumCasts = [
+        'status' => CartStatus::class,
+    ];
+
+    protected $fillable = [
+        'customer_id',
+        'customer_type'
+    ];
 
     public function customer()
     {
@@ -29,12 +40,9 @@ class Cart extends Model
 
     public function createByCustomer(CustomerInterface $customer, array $attributes): Cart
     {
-        $cart = $this->newInstance(
+        return $this->create(
             $this->prepareCartToCreate($customer, $attributes)
         );
-
-        $cart->save();
-        return $cart;
     }
 
     protected function prepareCartToCreate(CustomerInterface $customer, array $attributes)
@@ -69,5 +77,10 @@ class Cart extends Model
     public function calculateAmount()
     {
         return $this->items()->sum('amount');
+    }
+
+    public function getSessionAttribute(): bool
+    {
+
     }
 }

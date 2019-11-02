@@ -1,6 +1,6 @@
 <?php
 
-namespace Marketable;
+namespace Dsisconeto\LaravelPayment\Marketable;
 
 interface MarketableInterface
 {

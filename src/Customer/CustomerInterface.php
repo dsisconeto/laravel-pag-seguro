@@ -1,6 +1,6 @@
 <?php
 
-namespace Customer;
+namespace Dsisconeto\LaravelPayment\Customer;
 
 interface CustomerInterface
 {
